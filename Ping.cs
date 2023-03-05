@@ -33,13 +33,13 @@ class Program {
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
 
-                Console.WriteLine($"Serveur {serverRegion} : {pingTime} ms");
+                Console.WriteLine($"Server {serverRegion} : {pingTime} ms");
 
                 Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
-                Console.WriteLine($"Impossible de contacter le serveur {serverRegion}");
+                Console.WriteLine($"Unable to contact the server {serverRegion}");
             }
         }
     }
