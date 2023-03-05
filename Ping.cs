@@ -42,5 +42,7 @@ class Program {
                 Console.WriteLine($"Unable to contact the server {serverRegion}");
             }
         }
+
+        Console.Read();
     }
 }
