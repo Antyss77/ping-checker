@@ -3,6 +3,9 @@ using System.Net.NetworkInformation;
 
 class Program {
     static void Main(string[] args) {
+        
+        // Add a title to the window
+        Console.Title = "Ping Explorer";
 
         // Create a new Ping object to send ping requests
         Ping pingSender = new Ping();
@@ -12,8 +15,7 @@ class Program {
         string[] serverRegions = {"US", "FR", "CN", "DE", "RU"};
 
         // Loop through each server and ping it
-        for (int i = 0; i < serverNames.Length; i++)
-        {
+        for (int i = 0; i < serverNames.Length; i++) {
             // Get the name and region of the current server
             string serverName = serverNames[i];
             string serverRegion = serverRegions[i];
@@ -22,8 +24,7 @@ class Program {
             PingReply reply = pingSender.Send(serverName);
 
             // If the ping request was successful, print the ping time and color it based on the value
-            if (reply.Status == IPStatus.Success)
-            {
+            if (reply.Status == IPStatus.Success) {
                 // Get the ping time in milliseconds
                 int pingTime = (int) reply.RoundtripTime;
 
@@ -31,17 +32,14 @@ class Program {
                 string pingColor = Console.ForegroundColor.ToString();
 
                 // Choose the color for the ping time based on its value
-                if (pingTime < 80)
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;  // green for fast ping times
+                if (pingTime < 80) {
+                    Console.ForegroundColor = ConsoleColor.Green; // green for fast ping times
                 }
-                else if (pingTime < 140)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;  // yellow for moderate ping times
+                else if (pingTime < 140) {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow; // yellow for moderate ping times
                 }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;  // red for slow ping times
+                else {
+                    Console.ForegroundColor = ConsoleColor.Red; // red for slow ping times
                 }
 
                 // Print the server name, region, and ping time
@@ -50,8 +48,7 @@ class Program {
                 // Reset the console text color to white
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else
-            {
+            else {
                 // If the ping request failed, print an error message
                 Console.WriteLine($"Unable to contact the server {serverRegion}");
             }
